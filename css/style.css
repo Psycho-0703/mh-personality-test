@@ -568,17 +568,20 @@ img { max-width: 100%; }
 }
 
 
-/* v11 desktop result positioning refinements */
+/* v12 desktop result character sizing refinements */
 @media (min-width: 721px) {
   .screen-result .result-panel {
     margin-top: calc(clamp(80px, 11vh, 140px) + 20px);
   }
+  .result-header {
+    grid-template-columns: 1fr minmax(220px, 300px);
+  }
   .result-visual {
-    min-height: 260px;
+    min-height: 320px;
   }
   .result-visual img {
-    max-width: 250px;
-    max-height: 250px;
-    transform: translate(-10px, 10px);
+    max-width: 300px;
+    max-height: 300px;
+    transform: translate(-30px, 10px);
   }
 }
