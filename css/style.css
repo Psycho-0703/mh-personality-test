@@ -574,14 +574,14 @@ img { max-width: 100%; }
     margin-top: calc(clamp(80px, 11vh, 140px) + 20px);
   }
   .result-header {
-    grid-template-columns: 1fr minmax(220px, 300px);
+    grid-template-columns: 1fr minmax(280px, 360px);
   }
   .result-visual {
-    min-height: 320px;
+    min-height: 380px;
   }
   .result-visual img {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 360px;
+    max-height: 360px;
     transform: translate(-30px, 10px);
   }
 }
