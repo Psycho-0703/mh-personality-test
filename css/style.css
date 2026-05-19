@@ -599,3 +599,27 @@ img { max-width: 100%; }
     margin-top: clamp(0px, calc(4vw - 20px), 12px);
   }
 }
+
+/* v19: keep result title on one line */
+.result-title {
+  white-space: nowrap;
+}
+
+@media (min-width: 721px) {
+  .screen-result .result-panel {
+    max-width: min(960px, calc(100vw - 32px));
+  }
+  .result-header {
+    gap: clamp(16px, 2.4vw, 28px);
+  }
+  .result-title {
+    font-size: clamp(3.4rem, 5.8vw, 5.05rem);
+  }
+}
+
+@media (max-width: 720px) {
+  .result-title {
+    font-size: clamp(2.1rem, 11vw, 3.05rem);
+    letter-spacing: -0.09em;
+  }
+}
