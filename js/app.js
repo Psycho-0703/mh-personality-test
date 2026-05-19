@@ -310,29 +310,29 @@ async function downloadResultCard() {
 
   try {
     const img = await loadImage(r.image || `${state.assetBase}character/${r.id}.png`);
-    // 分享卡人物形象略微放大，保留上方视觉重点。
-    drawContain(ctx, img, W / 2 - 220, 112, 440, 440);
+    // v10：分享卡人物形象大幅放大，作为上方主视觉；不影响网页结果页。
+    drawContain(ctx, img, W / 2 - 325, 56, 650, 650);
   } catch {}
 
   ctx.textAlign = "center";
   ctx.fillStyle = "#3b2814";
   ctx.font = "900 72px Microsoft YaHei, Noto Sans SC, sans-serif";
-  ctx.fillText(r.title, W / 2, 615);
+  ctx.fillText(r.title, W / 2, 730);
 
   ctx.font = "700 27px Microsoft YaHei, Noto Sans SC, sans-serif";
   ctx.fillStyle = "#6d4b26";
   const combo = (r.combo && r.combo.length ? r.combo : (r.comboKeys || []).map(k => labels[k] || k)).join(" · ");
-  ctx.fillText(combo, W / 2, 662);
+  ctx.fillText(combo, W / 2, 778);
 
   ctx.textAlign = "left";
   ctx.fillStyle = "#3b2814";
   ctx.font = "800 30px Microsoft YaHei, Noto Sans SC, sans-serif";
-  let y = 735;
-  y = wrapText(ctx, r.quote, textX, y, textMax, 44, 3) + 24;
+  let y = 850;
+  y = wrapText(ctx, r.quote, textX, y, textMax, 44, 3) + 22;
 
   ctx.font = "700 25px Microsoft YaHei, Noto Sans SC, sans-serif";
   ctx.fillStyle = "#463018";
-  y = wrapText(ctx, r.description, textX, y, textMax, 38, 5) + 28;
+  y = wrapText(ctx, r.description, textX, y, textMax, 38, 4) + 26;
 
   ctx.font = "900 27px Microsoft YaHei, Noto Sans SC, sans-serif";
   ctx.fillStyle = "#76501f";
@@ -352,9 +352,10 @@ async function downloadResultCard() {
 
 
 async function drawSiteQr(ctx, W, H) {
-  const qrSize = 154;
+  // v10：分享卡二维码适当放大，仍保留底部安全边距。
+  const qrSize = 190;
   const qrX = (W - qrSize) / 2;
-  const qrY = H - 240;
+  const qrY = H - 278;
 
   ctx.save();
   ctx.fillStyle = "rgba(255, 247, 220, 0.92)";
@@ -374,8 +375,8 @@ async function drawSiteQr(ctx, W, H) {
 
   ctx.textAlign = "center";
   ctx.fillStyle = "#5d3d1b";
-  ctx.font = "800 24px Microsoft YaHei, Noto Sans SC, sans-serif";
-  ctx.fillText("扫码测试", W / 2, qrY + qrSize + 34);
+  ctx.font = "800 26px Microsoft YaHei, Noto Sans SC, sans-serif";
+  ctx.fillText("扫码测试", W / 2, qrY + qrSize + 38);
   ctx.restore();
 }
 
