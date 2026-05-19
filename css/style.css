@@ -585,7 +585,8 @@ img { max-width: 100%; }
   .result-visual img {
     max-width: 360px;
     max-height: 360px;
-    transform: translate(-30px, 10px);
+    /* v17: move desktop result character 50px right from v16 position. */
+    transform: translate(20px, 10px);
   }
 }
 
