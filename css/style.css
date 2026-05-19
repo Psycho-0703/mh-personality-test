@@ -465,3 +465,104 @@ img { max-width: 100%; }
     margin-top: 13px;
   }
 }
+
+
+/* v8 mobile result refinements: keep character size, move result below top ornament, tighten text, add bottom breathing room */
+@media (max-width: 720px) {
+  .screen-result {
+    padding-bottom: calc(86px + var(--safe-bottom));
+    overflow-y: auto;
+  }
+  .screen-result .result-panel {
+    max-width: min(330px, calc(100vw - 30px));
+    margin-top: clamp(116px, 14vh, 152px);
+    padding-inline: 14px;
+  }
+  .result-header {
+    gap: 6px;
+  }
+  .result-visual {
+    min-height: 148px;
+    margin-bottom: 0;
+  }
+  .result-visual img {
+    max-width: 142px;
+    max-height: 142px;
+  }
+  .result-kicker {
+    font-size: .72rem;
+    margin-bottom: 3px;
+    letter-spacing: .09em;
+  }
+  .result-title {
+    font-size: clamp(1.72rem, 9.2vw, 2.35rem);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+    margin-bottom: 8px;
+  }
+  .combo-tags, .weapon-tags {
+    gap: 5px;
+  }
+  .combo-tags span, .weapon-tags span {
+    font-size: .72rem;
+    min-height: 23px;
+    padding: 2px 7px;
+  }
+  .result-quote {
+    margin: 10px 0;
+    padding: 9px 11px;
+    font-size: .84rem;
+    line-height: 1.48;
+    border-left-width: 3px;
+  }
+  .result-section {
+    padding-top: 10px;
+  }
+  .result-section h2 {
+    font-size: .86rem;
+    margin-bottom: 4px;
+    letter-spacing: .04em;
+  }
+  .result-section p {
+    font-size: .84rem;
+    line-height: 1.5;
+    font-weight: 650;
+  }
+  .result-grid {
+    gap: 9px;
+    margin: 10px 0;
+  }
+  .monster-section {
+    margin-top: 10px;
+  }
+  .result-actions {
+    width: min(330px, calc(100vw - 30px));
+    margin-top: 12px;
+    margin-bottom: calc(34px + var(--safe-bottom));
+    gap: 7px;
+  }
+  .action-btn {
+    padding: 9px 12px;
+    font-size: .84rem;
+  }
+  .site-footer {
+    font-size: .7rem;
+    bottom: max(6px, var(--safe-bottom));
+  }
+}
+
+@media (max-width: 380px) {
+  .screen-result .result-panel {
+    max-width: min(318px, calc(100vw - 26px));
+    margin-top: clamp(108px, 13vh, 142px);
+  }
+  .result-title {
+    font-size: clamp(1.55rem, 8.8vw, 2.15rem);
+  }
+  .result-quote, .result-section p {
+    font-size: .8rem;
+  }
+  .result-section p {
+    line-height: 1.46;
+  }
+}

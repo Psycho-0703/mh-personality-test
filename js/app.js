@@ -310,41 +310,73 @@ async function downloadResultCard() {
 
   try {
     const img = await loadImage(r.image || `${state.assetBase}character/${r.id}.png`);
-    drawContain(ctx, img, W / 2 - 185, 180, 370, 370);
+    // 分享卡人物形象略微放大，保留上方视觉重点。
+    drawContain(ctx, img, W / 2 - 220, 112, 440, 440);
   } catch {}
 
   ctx.textAlign = "center";
   ctx.fillStyle = "#3b2814";
-  ctx.font = "900 74px Microsoft YaHei, Noto Sans SC, sans-serif";
-  ctx.fillText(r.title, W / 2, 640);
+  ctx.font = "900 72px Microsoft YaHei, Noto Sans SC, sans-serif";
+  ctx.fillText(r.title, W / 2, 615);
 
-  ctx.font = "700 28px Microsoft YaHei, Noto Sans SC, sans-serif";
+  ctx.font = "700 27px Microsoft YaHei, Noto Sans SC, sans-serif";
   ctx.fillStyle = "#6d4b26";
   const combo = (r.combo && r.combo.length ? r.combo : (r.comboKeys || []).map(k => labels[k] || k)).join(" · ");
-  ctx.fillText(combo, W / 2, 690);
+  ctx.fillText(combo, W / 2, 662);
 
   ctx.textAlign = "left";
   ctx.fillStyle = "#3b2814";
-  ctx.font = "800 32px Microsoft YaHei, Noto Sans SC, sans-serif";
-  let y = 775;
-  y = wrapText(ctx, r.quote, textX, y, textMax, 48, 3) + 30;
+  ctx.font = "800 30px Microsoft YaHei, Noto Sans SC, sans-serif";
+  let y = 735;
+  y = wrapText(ctx, r.quote, textX, y, textMax, 44, 3) + 24;
 
-  ctx.font = "700 27px Microsoft YaHei, Noto Sans SC, sans-serif";
+  ctx.font = "700 25px Microsoft YaHei, Noto Sans SC, sans-serif";
   ctx.fillStyle = "#463018";
-  y = wrapText(ctx, r.description, textX, y, textMax, 42, 7) + 34;
+  y = wrapText(ctx, r.description, textX, y, textMax, 38, 5) + 28;
 
-  ctx.font = "900 29px Microsoft YaHei, Noto Sans SC, sans-serif";
+  ctx.font = "900 27px Microsoft YaHei, Noto Sans SC, sans-serif";
   ctx.fillStyle = "#76501f";
   ctx.fillText("推荐武器", textX, y);
-  y += 44;
-  ctx.font = "800 29px Microsoft YaHei, Noto Sans SC, sans-serif";
+  y += 40;
+  ctx.font = "800 27px Microsoft YaHei, Noto Sans SC, sans-serif";
   ctx.fillStyle = "#3b2814";
-  wrapText(ctx, (r.weapons || []).join("、"), textX, y, textMax, 42, 2);
+  wrapText(ctx, (r.weapons || []).join("、"), textX, y, textMax, 38, 2);
+
+  await drawSiteQr(ctx, W, H);
 
   const link = document.createElement("a");
   link.download = `${r.title || "result"}_结果卡.png`;
   link.href = canvas.toDataURL("image/png");
   link.click();
+}
+
+
+async function drawSiteQr(ctx, W, H) {
+  const qrSize = 154;
+  const qrX = (W - qrSize) / 2;
+  const qrY = H - 240;
+
+  ctx.save();
+  ctx.fillStyle = "rgba(255, 247, 220, 0.92)";
+  roundRect(ctx, qrX - 16, qrY - 16, qrSize + 32, qrSize + 64, 18, true, false);
+
+  try {
+    const qr = await loadImage(`${state.assetBase}UI/qrcode.png`);
+    ctx.drawImage(qr, qrX, qrY, qrSize, qrSize);
+  } catch {
+    ctx.fillStyle = "#fff7dc";
+    ctx.fillRect(qrX, qrY, qrSize, qrSize);
+    ctx.fillStyle = "#3b2814";
+    ctx.font = "700 22px Microsoft YaHei, Noto Sans SC, sans-serif";
+    ctx.textAlign = "center";
+    wrapText(ctx, "扫码测试", W / 2 - 56, qrY + 58, 112, 28, 2);
+  }
+
+  ctx.textAlign = "center";
+  ctx.fillStyle = "#5d3d1b";
+  ctx.font = "800 24px Microsoft YaHei, Noto Sans SC, sans-serif";
+  ctx.fillText("扫码测试", W / 2, qrY + qrSize + 34);
+  ctx.restore();
 }
 
 function drawCover(ctx, img, x, y, w, h) {
