@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>狩猎人格测试</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main id="app" class="app">
+    <section id="startScreen" class="screen screen-home is-active" aria-label="首页">
+      <div class="home-inner">
+        <img id="titleImage" class="title-image" src="image/UI/titile.png" alt="狩猎人格测试 MONSTER HUNTER" />
+        <p class="home-desc">28 道狩猎情境题，看看你在猎场里到底是哪种人。</p>
+        <div class="home-meta" aria-label="测试信息">
+          <span>28 题</span>
+          <span>约 3–5 分钟</span>
+          <span>娱乐向测试</span>
+        </div>
+        <button id="startBtn" class="start-btn" type="button" aria-label="开始测试">
+          <img id="startButtonImage" src="image/button/start.png" alt="开始测试" />
+        </button>
+      </div>
+    </section>
+
+    <section id="quizScreen" class="screen screen-quiz" aria-label="问卷页">
+      <div class="page-panel quiz-panel">
+        <div class="quiz-top">
+          <button id="backBtn" class="text-btn" type="button">上一题</button>
+          <div class="progress-area" aria-label="测试进度">
+            <div class="progress-meta">
+              <span id="progressText">1 / 28</span>
+              <span id="dimensionHint">猎人登记中</span>
+            </div>
+            <div id="progressFrame" class="progress-frame">
+              <div id="progressBar" class="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-body">
+          <div id="questionNo" class="question-no">任务 01</div>
+          <h1 id="questionText" class="question-text">题目加载中……</h1>
+          <div id="options" class="options" aria-label="选项"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultScreen" class="screen screen-result" aria-label="结果页">
+      <div class="result-reveal" aria-hidden="true"></div>
+      <article id="resultCard" class="page-panel result-panel">
+        <div class="result-header">
+          <div class="result-title-wrap">
+            <span class="result-kicker">你的猎人类型</span>
+            <h1 id="resultTitle" class="result-title">档案信徒</h1>
+            <div id="resultCombo" class="combo-tags"></div>
+          </div>
+          <div class="result-visual">
+            <img id="resultImage" alt="人格像素形象" />
+            <div id="resultImageFallback" class="image-fallback">?</div>
+          </div>
+        </div>
+
+        <p id="resultQuote" class="result-quote"></p>
+
+        <section class="result-section">
+          <h2>猎人画像</h2>
+          <p id="resultDescription"></p>
+        </section>
+
+        <div class="result-grid">
+          <section class="result-section">
+            <h2>狩猎优势</h2>
+            <p id="resultStrengths"></p>
+          </section>
+          <section class="result-section">
+            <h2>潜在风险</h2>
+            <p id="resultRisks"></p>
+          </section>
+        </div>
+
+        <section class="result-section">
+          <h2>推荐武器</h2>
+          <div id="resultWeapons" class="weapon-tags"></div>
+        </section>
+
+        <section class="result-section monster-section">
+          <h2>代表怪物气质</h2>
+          <p id="resultMonster"></p>
+        </section>
+      </article>
+
+      <div class="result-actions">
+        <button id="downloadCardBtn" class="action-btn primary" type="button">下载结果卡</button>
+        <button id="copyResultBtn" class="action-btn" type="button">复制结果文案</button>
+        <button id="restartBtn" class="action-btn ghost" type="button">重新测试</button>
+      </div>
+      <canvas id="shareCanvas" width="1080" height="1600" aria-hidden="true"></canvas>
+    </section>
+  </main>
+
+  <footer class="site-footer">本测试为玩家娱乐向同人项目</footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

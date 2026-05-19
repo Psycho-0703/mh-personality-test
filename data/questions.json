@@ -1,0 +1,422 @@
+[
+  {
+    "id": 1,
+    "dimension": "solo_team",
+    "text": "新怪刚更新，你更想怎么开荒？",
+    "options": [
+      {
+        "text": "自己先开一把，安静摸摸它的节奏",
+        "score": "solo"
+      },
+      {
+        "text": "叫上朋友一起打，边打边交流发现",
+        "score": "team"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "dimension": "study_trial",
+    "text": "第一次打完全陌生的怪物前，你通常会？",
+    "options": [
+      {
+        "text": "先看看弱点、肉质、招式和推荐打法",
+        "score": "study"
+      },
+      {
+        "text": "直接进任务，让怪物本人讲课",
+        "score": "trial"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "dimension": "craft_instinct",
+    "text": "出发前，你更在意哪件事？",
+    "options": [
+      {
+        "text": "技能、道具、耐性和属性克制尽量配好",
+        "score": "craft"
+      },
+      {
+        "text": "装备差不多就行，打起来再调整",
+        "score": "instinct"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "dimension": "order_flex",
+    "text": "一把武器已经玩顺手后，你更可能？",
+    "options": [
+      {
+        "text": "继续打磨，把流程练得更稳",
+        "score": "order"
+      },
+      {
+        "text": "换把武器或换套打法，找点新鲜感",
+        "score": "flex"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "dimension": "solo_team",
+    "text": "怪物倒地，队友正在蓄大招，你会？",
+    "options": [
+      {
+        "text": "注意队友位置，尽量别挡他的输出",
+        "score": "team"
+      },
+      {
+        "text": "按自己的节奏先把这一波打满",
+        "score": "solo"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "dimension": "study_trial",
+    "text": "同一只怪连续失败几次后，你更可能？",
+    "options": [
+      {
+        "text": "再打一把，感觉已经快摸清它了",
+        "score": "trial"
+      },
+      {
+        "text": "先停一下，看看是不是机制没搞懂",
+        "score": "study"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "dimension": "craft_instinct",
+    "text": "你觉得自己输出不够时，第一反应是？",
+    "options": [
+      {
+        "text": "反思是不是贪刀、走位或节奏有问题",
+        "score": "instinct"
+      },
+      {
+        "text": "检查肉质、属性、技能和配装效率",
+        "score": "craft"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "dimension": "order_flex",
+    "text": "同一只怪刷到第十把时，你更像是？",
+    "options": [
+      {
+        "text": "换个武器或打法，不然有点刷麻了",
+        "score": "flex"
+      },
+      {
+        "text": "沿用最顺手的流程，稳定把素材刷完",
+        "score": "order"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "dimension": "solo_team",
+    "text": "面对高难任务，你更倾向于？",
+    "options": [
+      {
+        "text": "先自己练几把，心里有底再联机",
+        "score": "solo"
+      },
+      {
+        "text": "直接找队友一起磨，边打边解决",
+        "score": "team"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "dimension": "study_trial",
+    "text": "朋友问你新怪机制要不要提前说，你会？",
+    "options": [
+      {
+        "text": "先别说，让我自己被它教育一下",
+        "score": "trial"
+      },
+      {
+        "text": "关键机制可以说，少走点弯路",
+        "score": "study"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "dimension": "craft_instinct",
+    "text": "你的道具包通常更接近哪种状态？",
+    "options": [
+      {
+        "text": "陷阱、粉尘、异常道具都尽量带齐",
+        "score": "craft"
+      },
+      {
+        "text": "回复药和核心道具够了，其他随缘",
+        "score": "instinct"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "dimension": "order_flex",
+    "text": "看到一个冷门但有趣的流派视频，你会？",
+    "options": [
+      {
+        "text": "有点想试，万一真能用呢",
+        "score": "flex"
+      },
+      {
+        "text": "看看就好，还是自己这套更稳",
+        "score": "order"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "dimension": "solo_team",
+    "text": "队友连续失误，场面有点危险时，你会？",
+    "options": [
+      {
+        "text": "先调整打法，帮队伍稳住局面",
+        "score": "team"
+      },
+      {
+        "text": "专注把自己打好，尽快结束战斗",
+        "score": "solo"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "dimension": "study_trial",
+    "text": "你看高手狩猎视频时，更常是为了？",
+    "options": [
+      {
+        "text": "学站位、输出窗口和关键招式处理",
+        "score": "study"
+      },
+      {
+        "text": "看个大概，真正会不会还得自己打",
+        "score": "trial"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "dimension": "craft_instinct",
+    "text": "打不过一只怪时，你更容易先做什么？",
+    "options": [
+      {
+        "text": "继续熟悉节奏，少犯错就能过",
+        "score": "instinct"
+      },
+      {
+        "text": "改技能、换抗性、调整道具和打法",
+        "score": "craft"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "dimension": "order_flex",
+    "text": "固定队今晚要刷素材，你更希望？",
+    "options": [
+      {
+        "text": "按成熟路线来，效率稳定一点",
+        "score": "order"
+      },
+      {
+        "text": "顺便试个新组合，刷素材也别太无聊",
+        "score": "flex"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "dimension": "solo_team",
+    "text": "做出一套新装备后，你更可能？",
+    "options": [
+      {
+        "text": "自己先试几把，看看合不合手",
+        "score": "solo"
+      },
+      {
+        "text": "拉朋友一起看，顺便讨论怎么搭",
+        "score": "team"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "dimension": "study_trial",
+    "text": "战斗中遇到没见过的异常状态，你会？",
+    "options": [
+      {
+        "text": "打完立刻查它怎么触发、怎么解除",
+        "score": "study"
+      },
+      {
+        "text": "先多观察几次，看看它到底怎么运作",
+        "score": "trial"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "dimension": "craft_instinct",
+    "text": "你更喜欢哪种战斗状态？",
+    "options": [
+      {
+        "text": "闪避、反击、进退都靠手感顺起来",
+        "score": "instinct"
+      },
+      {
+        "text": "技能、资源、站位和输出窗口都在计划里",
+        "score": "craft"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "dimension": "order_flex",
+    "text": "一套打法明显有效后，你会？",
+    "options": [
+      {
+        "text": "继续练熟，让成功率越来越高",
+        "score": "order"
+      },
+      {
+        "text": "开始想它还能不能改得更有意思一点",
+        "score": "flex"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "dimension": "solo_team",
+    "text": "一场任务打完后，哪种满足感更强？",
+    "options": [
+      {
+        "text": "队伍配合很顺，大家都打出了作用",
+        "score": "team"
+      },
+      {
+        "text": "自己完整处理了关键招式和危险场面",
+        "score": "solo"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "dimension": "study_trial",
+    "text": "开荒卡关时，你更容易选择？",
+    "options": [
+      {
+        "text": "再多打几把，身体总会记住答案",
+        "score": "trial"
+      },
+      {
+        "text": "找找别人是怎么处理这一段的",
+        "score": "study"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "dimension": "craft_instinct",
+    "text": "怪物倒地时，你更在意？",
+    "options": [
+      {
+        "text": "站位、连段、资源消耗和收益最大化",
+        "score": "craft"
+      },
+      {
+        "text": "抓住手感最舒服的节奏，先打一套再说",
+        "score": "instinct"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "dimension": "order_flex",
+    "text": "新存档开始时，你更可能？",
+    "options": [
+      {
+        "text": "故意选一把不熟的武器，换个体验",
+        "score": "flex"
+      },
+      {
+        "text": "用自己熟悉的武器，快速进入状态",
+        "score": "order"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "dimension": "solo_team",
+    "text": "联机时队友问“这怪怎么打”，你通常会？",
+    "options": [
+      {
+        "text": "简单说几个重点，然后大家一起试",
+        "score": "team"
+      },
+      {
+        "text": "我更习惯自己先打明白，再分享经验",
+        "score": "solo"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "dimension": "study_trial",
+    "text": "新版本刚开，攻略还不完整时，你会？",
+    "options": [
+      {
+        "text": "先收集现有情报，等机制大概清楚再深入",
+        "score": "study"
+      },
+      {
+        "text": "趁大家都不懂，赶紧进去盲打才有意思",
+        "score": "trial"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "dimension": "craft_instinct",
+    "text": "换一只怪打之前，你更可能？",
+    "options": [
+      {
+        "text": "针对它重新检查装备、技能和道具",
+        "score": "craft"
+      },
+      {
+        "text": "先打一把看看感觉，不行再说",
+        "score": "instinct"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "dimension": "order_flex",
+    "text": "朋友推荐一套不主流但很好玩的打法，你会？",
+    "options": [
+      {
+        "text": "先记下，等有空试试，说不定有东西",
+        "score": "flex"
+      },
+      {
+        "text": "先放一边，我还是想用稳定打法打完",
+        "score": "order"
+      }
+    ]
+  }
+]
