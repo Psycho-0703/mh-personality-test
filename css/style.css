@@ -568,16 +568,19 @@ img { max-width: 100%; }
 }
 
 
-/* v12 desktop result character sizing refinements */
+/* v14 desktop result character layout refinements */
 @media (min-width: 721px) {
   .screen-result .result-panel {
     margin-top: calc(clamp(80px, 11vh, 140px) + 20px);
   }
   .result-header {
     grid-template-columns: 1fr minmax(280px, 360px);
+    align-items: start;
   }
   .result-visual {
-    min-height: 380px;
+    /* Keep the 360px character size, but reduce the reserved blank space below it. */
+    min-height: 340px;
+    place-items: start center;
   }
   .result-visual img {
     max-width: 360px;
