@@ -585,8 +585,8 @@ img { max-width: 100%; }
   .result-visual img {
     max-width: 360px;
     max-height: 360px;
-    /* v17: move desktop result character 50px right from v16 position. */
-    transform: translate(20px, 10px);
+    /* v18: move desktop result character another 50px right from v17 position. */
+    transform: translate(70px, 10px);
   }
 }
 
