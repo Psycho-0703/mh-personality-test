@@ -311,23 +311,23 @@ async function downloadResultCard() {
   try {
     const img = await loadImage(r.image || `${state.assetBase}character/${r.id}.png`);
     // v10：分享卡人物形象大幅放大，作为上方主视觉；不影响网页结果页。
-    drawContain(ctx, img, W / 2 - 325, 56, 650, 650);
+    drawContain(ctx, img, W / 2 - 325, 76, 650, 650);
   } catch {}
 
   ctx.textAlign = "center";
   ctx.fillStyle = "#3b2814";
   ctx.font = "900 72px Microsoft YaHei, Noto Sans SC, sans-serif";
-  ctx.fillText(r.title, W / 2, 730);
+  ctx.fillText(r.title, W / 2, 770);
 
   ctx.font = "700 27px Microsoft YaHei, Noto Sans SC, sans-serif";
   ctx.fillStyle = "#6d4b26";
   const combo = (r.combo && r.combo.length ? r.combo : (r.comboKeys || []).map(k => labels[k] || k)).join(" · ");
-  ctx.fillText(combo, W / 2, 778);
+  ctx.fillText(combo, W / 2, 818);
 
   ctx.textAlign = "left";
   ctx.fillStyle = "#3b2814";
   ctx.font = "800 30px Microsoft YaHei, Noto Sans SC, sans-serif";
-  let y = 850;
+  let y = 890;
   y = wrapText(ctx, r.quote, textX, y, textMax, 44, 3) + 22;
 
   ctx.font = "700 25px Microsoft YaHei, Noto Sans SC, sans-serif";
