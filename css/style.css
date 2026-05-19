@@ -588,3 +588,13 @@ img { max-width: 100%; }
     transform: translate(-30px, 10px);
   }
 }
+
+/* v15 desktop result copy position adjustment: keep character unchanged, move text upward */
+@media (min-width: 721px) {
+  .result-title-wrap {
+    transform: translateY(-20px);
+  }
+  .result-quote {
+    margin-top: clamp(0px, calc(4vw - 20px), 12px);
+  }
+}
