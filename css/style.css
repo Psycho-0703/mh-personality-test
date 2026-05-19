@@ -589,10 +589,10 @@ img { max-width: 100%; }
   }
 }
 
-/* v15 desktop result copy position adjustment: keep character unchanged, move text upward */
+/* v16 desktop result copy refinement: restore the title block near the character, keep lower copy compact */
 @media (min-width: 721px) {
   .result-title-wrap {
-    transform: translateY(-20px);
+    transform: none;
   }
   .result-quote {
     margin-top: clamp(0px, calc(4vw - 20px), 12px);
