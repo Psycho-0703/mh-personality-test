@@ -733,3 +733,20 @@ img { max-width: 100%; }
     padding: 4px 8px;
   }
 }
+
+
+/* v23: make result rarity visible on desktop with a separate body line; keep mobile title-area line. */
+.result-rarity-body { display: none; }
+@media (min-width: 721px) {
+  .result-title-wrap > #resultRarity { display: none !important; }
+  .result-rarity-body.is-visible {
+    display: inline-flex !important;
+    align-items: center;
+    margin: 0 0 14px 0;
+    font-size: 1rem;
+    padding: 7px 14px;
+  }
+}
+@media (max-width: 720px) {
+  .result-rarity-body { display: none !important; }
+}

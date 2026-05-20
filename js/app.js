@@ -222,19 +222,12 @@ function showResult() {
   const comboLabels = (r.combo && r.combo.length ? r.combo : (r.comboKeys || []).map(k => labels[k] || k));
   comboLabels.forEach(text => combo.appendChild(makeTag(text)));
 
-  const rarity = el("resultRarity");
-  if (rarity) {
-    rarity.textContent = "正在登记猎人分布……";
-    rarity.classList.add("is-visible");
-  }
   r.rarityMessage = "正在登记猎人分布……";
+  setResultRarity(r.rarityMessage, true);
   submitResultStats(r).catch(error => {
     console.warn("统计接口暂不可用：", error);
-    if (rarity) {
-      rarity.textContent = "猎人分布统计暂时加载失败";
-      rarity.classList.add("is-visible");
-    }
     r.rarityMessage = "猎人分布统计暂时加载失败";
+    setResultRarity(r.rarityMessage, true);
   });
 
   const weapons = el("resultWeapons");
@@ -283,6 +276,15 @@ function normalizeRarityMessage(data) {
   return `${prefix} ${percent}% 的猎人和你风格一样噢`;
 }
 
+function setResultRarity(message, visible = true) {
+  ["resultRarity", "resultRarityBody"].forEach(id => {
+    const node = el(id);
+    if (!node) return;
+    node.textContent = message || "";
+    node.classList.toggle("is-visible", Boolean(visible && message));
+  });
+}
+
 async function submitResultStats(result) {
   if (!result) return null;
   const body = new URLSearchParams({
@@ -304,10 +306,8 @@ async function submitResultStats(result) {
   const message = normalizeRarityMessage(data);
   result.rarityMessage = message;
   result.rarityStats = data;
-  const rarity = el("resultRarity");
-  if (rarity && state.finalResult && Number(state.finalResult.id) === Number(result.id)) {
-    rarity.textContent = message;
-    rarity.classList.add("is-visible");
+  if (state.finalResult && Number(state.finalResult.id) === Number(result.id)) {
+    setResultRarity(message, true);
   }
   return data;
 }
