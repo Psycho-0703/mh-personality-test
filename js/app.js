@@ -13,6 +13,9 @@ const state = {
   assetBase: "image/"
 };
 
+const STATS_ENDPOINT = "https://mhti-d2gnbqvtrd8059fec-1434731223.ap-shanghai.app.tcloudbase.com/api/submit-result";
+const CLIENT_ID_KEY = "mh_personality_client_id";
+
 const labels = {
   solo: "独行", team: "协作",
   study: "研读", trial: "试炼",
@@ -219,6 +222,21 @@ function showResult() {
   const comboLabels = (r.combo && r.combo.length ? r.combo : (r.comboKeys || []).map(k => labels[k] || k));
   comboLabels.forEach(text => combo.appendChild(makeTag(text)));
 
+  const rarity = el("resultRarity");
+  if (rarity) {
+    rarity.textContent = "正在登记猎人分布……";
+    rarity.classList.add("is-visible");
+  }
+  r.rarityMessage = "正在登记猎人分布……";
+  submitResultStats(r).catch(error => {
+    console.warn("统计接口暂不可用：", error);
+    if (rarity) {
+      rarity.textContent = "猎人分布统计暂时加载失败";
+      rarity.classList.add("is-visible");
+    }
+    r.rarityMessage = "猎人分布统计暂时加载失败";
+  });
+
   const weapons = el("resultWeapons");
   weapons.innerHTML = "";
   (r.weapons || []).forEach(w => weapons.appendChild(makeTag(w)));
@@ -238,6 +256,60 @@ function showResult() {
   effect.classList.remove("is-playing");
   void effect.offsetWidth;
   effect.classList.add("is-playing");
+}
+
+function getClientId() {
+  let clientId = localStorage.getItem(CLIENT_ID_KEY);
+  if (!clientId || !/^hunter_[a-zA-Z0-9_-]{8,64}$/.test(clientId)) {
+    if (window.crypto && crypto.randomUUID) {
+      clientId = `hunter_${crypto.randomUUID().replace(/-/g, "")}`;
+    } else {
+      clientId = `hunter_${Math.random().toString(36).slice(2)}${Date.now().toString(36)}`;
+    }
+    localStorage.setItem(CLIENT_ID_KEY, clientId);
+  }
+  return clientId;
+}
+
+function formatTypeId(id) {
+  return String(id).trim().padStart(2, "0");
+}
+
+function normalizeRarityMessage(data) {
+  if (!data || !data.ok) return "猎人分布统计暂时加载失败";
+  if (typeof data.message === "string" && data.message.trim()) return data.message.trim();
+  const percent = Number(data.percent || 0);
+  const prefix = percent < 12 ? "只有" : "有";
+  return `${prefix} ${percent}% 的猎人和你风格一样噢`;
+}
+
+async function submitResultStats(result) {
+  if (!result) return null;
+  const body = new URLSearchParams({
+    clientId: getClientId(),
+    typeId: formatTypeId(result.id)
+  }).toString();
+
+  const response = await fetch(STATS_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body
+  });
+  const data = await response.json();
+  if (!response.ok || !data.ok) {
+    throw new Error(data && data.error ? data.error : `HTTP_${response.status}`);
+  }
+  const message = normalizeRarityMessage(data);
+  result.rarityMessage = message;
+  result.rarityStats = data;
+  const rarity = el("resultRarity");
+  if (rarity && state.finalResult && Number(state.finalResult.id) === Number(result.id)) {
+    rarity.textContent = message;
+    rarity.classList.add("is-visible");
+  }
+  return data;
 }
 
 function makeTag(text) {
@@ -324,10 +396,16 @@ async function downloadResultCard() {
   const combo = (r.combo && r.combo.length ? r.combo : (r.comboKeys || []).map(k => labels[k] || k)).join(" · ");
   ctx.fillText(combo, W / 2, 818);
 
+  if (r.rarityMessage) {
+    ctx.font = "800 28px Microsoft YaHei, Noto Sans SC, sans-serif";
+    ctx.fillStyle = "#7a4b1d";
+    ctx.fillText(r.rarityMessage, W / 2, 864);
+  }
+
   ctx.textAlign = "left";
   ctx.fillStyle = "#3b2814";
   ctx.font = "800 30px Microsoft YaHei, Noto Sans SC, sans-serif";
-  let y = 890;
+  let y = r.rarityMessage ? 928 : 890;
   y = wrapText(ctx, r.quote, textX, y, textMax, 44, 3) + 22;
 
   ctx.font = "700 25px Microsoft YaHei, Noto Sans SC, sans-serif";
